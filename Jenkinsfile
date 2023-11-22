@@ -7,15 +7,15 @@ pipeline {
     }
 
     stages {
-        // stage('Git Checkout') {
-        //     steps {
-        //         script {
-        //             git branch: 'main',
-        //                 credentialsId: '9b8d225a-a34e-434a-8765-76903368a6c1',
-        //                 url: 'https://github.com/Himanshuu20/checkov-poc.git'
-        //         }
-        //     }
-        // }
+        stage('Git Checkout') {
+            steps {
+                script {
+                    git branch: 'main',
+                        credentialsId: '9b8d225a-a34e-434a-8765-76903368a6c1',
+                        url: 'https://github.com/Himanshuu20/checkov-poc.git'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 // Run Maven on a Unix agent.
