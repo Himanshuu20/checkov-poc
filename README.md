@@ -11,22 +11,19 @@
     This stage should contain the necessary commands to execute Checkov against your IaC code.
 
         pipeline {
-            agent any        
-            stage('Checkov') {
-                 steps {
-                     script {
-                         docker.image('bridgecrew/checkov:latest').inside("--entrypoint=''") {
-                             unstash 'checkov-poc'
-                             try {
-                                 sh 'checkov -d . -o cli -o junitxml --output-file-path console,results.xml --repo-id Himanshuu20/checkov-poc --branch main'
-                                 junit skipPublishingChecks: true, testResults: 'results.xml'
-                             } catch (err) {
-                                 junit skipPublishingChecks: true, testResults: 'results.xml'
-                                 throw err
-                             }
-                         }
-                     }
-                 }
-             }           
+            agent any
+            
+            stages {
+                stage('Checkov') {
+                    steps {
+                        // Assuming Checkov is in the PATH
+                        sh 'checkov -d path_to_your_terraform_or_cloudformation_code'
+                        // Replace path_to_your_terraform_or_cloudformation_code with your IaC code directory
+                    }
+                }
+                // Other stages in your pipeline
+            }
+            
             // Post-build actions, etc.
         }
+
