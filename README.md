@@ -1,10 +1,12 @@
-## Anaplan POC to test the vulnerabilities of terraform scripts using Checkov IAC tool.
+## Anaplan POC to test the vulnerabilities of terraform scripts files using Checkov IAC tool.
 
 ### Prerequisite 
-    1. Supported IaC Frameworks: Checkov supports various IaC frameworks such as Terraform, Kubernetes, CloudFormation, and more.
-       Ensure your IaC framework is supported.
+    1. Checkov is a static code analysis tool for scanning infrastructure as code (IaC) files and to test the vulnerabilities of terraform scripts files.
     2. Python: Checkov is written in Python, so you'll need Python installed on your system.
     3. Installation via pip: You can install Checkov using Python's package manager, pip. Use the command pip install checkov to install it.
+
+### Execution
+    Whenever any changes pushed to the repo. Jenkinsfile pipeline will triggers and generate the test result report according to the changes.
 
 ### Required Action
     Stage Setup in Jenkinsfile: Incorporate a stage within your Jenkinsfile dedicated to running Checkov.
@@ -25,5 +27,8 @@
             }
             
             // Post-build actions, etc.
-        }
+        }    
 
+### Result
+
+![TESTRESULT](/home/himanshu.sagar/Pictures/result.png)

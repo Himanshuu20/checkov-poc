@@ -1,3 +1,7 @@
+variable "REGION" {
+  default = "us-east-1"
+}
+
 variable "ACCESS_KEY" {
   default = "AKIAZHL42HSHZRT2VOTG"
 }
